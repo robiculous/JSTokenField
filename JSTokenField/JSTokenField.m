@@ -407,4 +407,17 @@ NSString *const JSDeletedTokenKey = @"JSDeletedTokenKey";
 	}
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+	if (textField == _textField)
+	{
+        if ([self.delegate respondsToSelector:@selector(tokenFieldDidBeginEditing:)]) {
+            [self.delegate tokenFieldDidBeginEditing:self];
+            return;
+        }
+
+	}
+
+}
+
 @end
